@@ -12,3 +12,13 @@ func _ready():
 	pass
 
 
+
+
+func _on_Bulid_btt_pressed():
+	type_of_action = 0
+
+func _on_Orders_btt_pressed():
+	type_of_action = 1
+
+func _on_Stats_btt_pressed():
+	type_of_action = 2
