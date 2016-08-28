@@ -23,3 +23,7 @@ func _on_Orders_btt_pressed():
 	type_of_action = 1
 func _on_Stats_btt_pressed():
 	type_of_action = 2
+
+func _on_PopupMenu_item_pressed( ID ):
+	if ID == 0:
+		get_node("OptionMenu").show()

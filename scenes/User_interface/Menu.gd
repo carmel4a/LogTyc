@@ -40,6 +40,7 @@ func _process(delta):
 
 	if is_hidden() == true:
 		showed = 0
+		
 
 func _input(event):
 	if event.is_action_pressed("con_menu"):

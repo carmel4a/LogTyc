@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scenes/User_interface/User_interface.gd" type="Script" id=1]
 [ext_resource path="res://scenes/User_interface/Menu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/User_interface/OptionMenu.gd" type="Script" id=3]
 
 [node name="User_interface" type="CanvasLayer"]
 
@@ -26,58 +27,355 @@ popup/exclusive = false
 items = [  ]
 script/script = ExtResource( 2 )
 
-[node name="menu_timer" type="Timer" parent="PopupMenu"]
+[node name="OptionMenu" type="PanelContainer" parent="."]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 13.0
+margin/top = 12.0
+margin/right = 95.0
+margin/bottom = 166.0
+script/script = ExtResource( 3 )
+__meta__ = { "_edit_group_":true }
 
-[node name="Botton panel" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="OptionMenu"]
 
-anchor/left = 3
-anchor/top = 1
-anchor/right = 3
-anchor/bottom = 1
-rect/min_size = Vector2( 118, 42 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 75.0
+margin/bottom = 147.0
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionMenu/CenterContainer"]
+
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 59.0
-margin/top = 47.0
-margin/right = -59.0
-margin/bottom = 5.0
-use_top_left = false
-__meta__ = { "_edit_group_":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 68.0
+margin/bottom = 140.0
+alignment = 0
 
-[node name="Background" type="Panel" parent="Botton panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionMenu/CenterContainer/VBoxContainer"]
 
-visibility/behind_parent = true
-rect/min_size = Vector2( 118, 42 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 68.0
+margin/bottom = 20.0
+alignment = 2
+
+[node name="Button" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer"]
+
+rect/min_size = Vector2( 12, 12 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 49.0
+margin/top = 0.0
+margin/right = 68.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "x"
+flat = false
+
+[node name="GridContainer" type="GridContainer" parent="OptionMenu/CenterContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 68.0
+margin/bottom = 140.0
+columns = 3
+
+[node name="Button7" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 118.0
-margin/bottom = 42.0
+margin/right = 20.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Botton panel"]
+[node name="Button8" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 0.0
+margin/right = 44.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button9" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = 0.0
+margin/right = 68.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button10" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 20.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button11" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 24.0
+margin/right = 44.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button12" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = 24.0
+margin/right = 68.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button13" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 20.0
+margin/bottom = 68.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button14" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 48.0
+margin/right = 44.0
+margin/bottom = 68.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button15" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = 48.0
+margin/right = 68.0
+margin/bottom = 68.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button16" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 72.0
+margin/right = 20.0
+margin/bottom = 92.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button17" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 72.0
+margin/right = 44.0
+margin/bottom = 92.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button18" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = 72.0
+margin/right = 68.0
+margin/bottom = 92.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button19" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 96.0
+margin/right = 20.0
+margin/bottom = 116.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button20" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 96.0
+margin/right = 44.0
+margin/bottom = 116.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button21" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
+
+rect/min_size = Vector2( 20, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = 96.0
+margin/right = 68.0
+margin/bottom = 116.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="BottonPanel" type="PanelContainer" parent="."]
+
+editor/display_folded = true
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 59.0
+margin/top = 47.0
+margin/right = -59.0
+margin/bottom = 5.0
+__meta__ = { "_edit_group_":true, "_edit_lock_":true }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottonPanel"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 6.0
-margin/top = 5.0
-margin/right = 112.0
-margin/bottom = 37.0
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 113.0
+margin/bottom = 39.0
 custom_constants/separation = 5
 alignment = 0
 
-[node name="Bulid_btt" type="Button" parent="Botton panel/HBoxContainer"]
+[node name="Bulid_btt" type="Button" parent="BottonPanel/HBoxContainer"]
 
 rect/min_size = Vector2( 32, 32 )
 focus/ignore_mouse = false
@@ -93,7 +391,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="Orders_btt" type="Button" parent="Botton panel/HBoxContainer"]
+[node name="Orders_btt" type="Button" parent="BottonPanel/HBoxContainer"]
 
 rect/min_size = Vector2( 32, 32 )
 focus/ignore_mouse = false
@@ -109,7 +407,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="Stats_btt" type="Button" parent="Botton panel/HBoxContainer"]
+[node name="Stats_btt" type="Button" parent="BottonPanel/HBoxContainer"]
 
 rect/min_size = Vector2( 32, 32 )
 focus/ignore_mouse = false
@@ -125,12 +423,16 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[connection signal="timeout" from="PopupMenu/menu_timer" to="PopupMenu" method="_on_menu_timer_timeout"]
+[connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
 
-[connection signal="pressed" from="Botton panel/HBoxContainer/Bulid_btt" to="." method="_on_Bulid_btt_pressed"]
+[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
 
-[connection signal="pressed" from="Botton panel/HBoxContainer/Orders_btt" to="." method="_on_Orders_btt_pressed"]
+[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="OptionMenu" method="_on_Button_pressed"]
 
-[connection signal="pressed" from="Botton panel/HBoxContainer/Stats_btt" to="." method="_on_Stats_btt_pressed"]
+[connection signal="pressed" from="BottonPanel/HBoxContainer/Bulid_btt" to="." method="_on_Bulid_btt_pressed"]
+
+[connection signal="pressed" from="BottonPanel/HBoxContainer/Orders_btt" to="." method="_on_Orders_btt_pressed"]
+
+[connection signal="pressed" from="BottonPanel/HBoxContainer/Stats_btt" to="." method="_on_Stats_btt_pressed"]
 
 
