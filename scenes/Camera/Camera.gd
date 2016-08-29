@@ -36,6 +36,9 @@ func _ready():
 	set_process_input(true)
 
 func _process(delta):
+	
+	
+	
 # Set camera movement to zero, and update camera speed. (sry!)
 	camera_speed = 450 * 2*sqrt(camera_zoom.x)
 	camera_movement = Vector2()

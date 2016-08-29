@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenes/User_interface/User_interface.gd" type="Script" id=1]
 [ext_resource path="res://scenes/User_interface/Menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/User_interface/OptionMenu.gd" type="Script" id=3]
+[ext_resource path="res://res/Tileset/Tileset2/1.png" type="Texture" id=4]
+[ext_resource path="res://res/Tileset/Tileset2/2.png" type="Texture" id=5]
 
 [node name="User_interface" type="CanvasLayer"]
 
@@ -35,8 +37,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 13.0
 margin/top = 12.0
-margin/right = 95.0
-margin/bottom = 166.0
+margin/right = 227.0
+margin/bottom = 280.0
 script/script = ExtResource( 3 )
 __meta__ = { "_edit_group_":true }
 
@@ -48,8 +50,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 7.0
 margin/top = 7.0
-margin/right = 75.0
-margin/bottom = 147.0
+margin/right = 315.0
+margin/bottom = 261.0
 use_top_left = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionMenu/CenterContainer"]
@@ -60,19 +62,20 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 68.0
-margin/bottom = 140.0
+margin/right = 308.0
+margin/bottom = 254.0
 alignment = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionMenu/CenterContainer/VBoxContainer"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 68.0
+margin/right = 308.0
 margin/bottom = 20.0
 alignment = 2
 
@@ -83,9 +86,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 49.0
+margin/left = 289.0
 margin/top = 0.0
-margin/right = 68.0
+margin/right = 308.0
 margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -97,12 +100,12 @@ flat = false
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/horizontal = 3
+size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 24.0
-margin/right = 68.0
-margin/bottom = 140.0
+margin/right = 308.0
+margin/bottom = 254.0
 columns = 3
 
 [node name="Button7" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
@@ -114,11 +117,12 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 20.0
-margin/bottom = 20.0
+margin/right = 140.0
+margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+icon = ExtResource( 4 )
 flat = false
 
 [node name="Button8" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
@@ -128,13 +132,14 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 24.0
+margin/left = 144.0
 margin/top = 0.0
-margin/right = 44.0
-margin/bottom = 20.0
+margin/right = 284.0
+margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+icon = ExtResource( 5 )
 flat = false
 
 [node name="Button9" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
@@ -144,10 +149,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
+margin/left = 288.0
 margin/top = 0.0
-margin/right = 68.0
-margin/bottom = 20.0
+margin/right = 308.0
+margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -161,9 +166,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 24.0
-margin/right = 20.0
-margin/bottom = 44.0
+margin/top = 138.0
+margin/right = 140.0
+margin/bottom = 158.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -176,10 +181,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 24.0
-margin/top = 24.0
-margin/right = 44.0
-margin/bottom = 44.0
+margin/left = 144.0
+margin/top = 138.0
+margin/right = 284.0
+margin/bottom = 158.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -192,10 +197,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 24.0
-margin/right = 68.0
-margin/bottom = 44.0
+margin/left = 288.0
+margin/top = 138.0
+margin/right = 308.0
+margin/bottom = 158.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -209,9 +214,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 48.0
-margin/right = 20.0
-margin/bottom = 68.0
+margin/top = 162.0
+margin/right = 140.0
+margin/bottom = 182.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -224,10 +229,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 24.0
-margin/top = 48.0
-margin/right = 44.0
-margin/bottom = 68.0
+margin/left = 144.0
+margin/top = 162.0
+margin/right = 284.0
+margin/bottom = 182.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -240,10 +245,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 48.0
-margin/right = 68.0
-margin/bottom = 68.0
+margin/left = 288.0
+margin/top = 162.0
+margin/right = 308.0
+margin/bottom = 182.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -257,9 +262,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 72.0
-margin/right = 20.0
-margin/bottom = 92.0
+margin/top = 186.0
+margin/right = 140.0
+margin/bottom = 206.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -272,10 +277,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 24.0
-margin/top = 72.0
-margin/right = 44.0
-margin/bottom = 92.0
+margin/left = 144.0
+margin/top = 186.0
+margin/right = 284.0
+margin/bottom = 206.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -288,10 +293,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 72.0
-margin/right = 68.0
-margin/bottom = 92.0
+margin/left = 288.0
+margin/top = 186.0
+margin/right = 308.0
+margin/bottom = 206.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -305,9 +310,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 96.0
-margin/right = 20.0
-margin/bottom = 116.0
+margin/top = 210.0
+margin/right = 140.0
+margin/bottom = 230.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -320,10 +325,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 24.0
-margin/top = 96.0
-margin/right = 44.0
-margin/bottom = 116.0
+margin/left = 144.0
+margin/top = 210.0
+margin/right = 284.0
+margin/bottom = 230.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -336,10 +341,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 96.0
-margin/right = 68.0
-margin/bottom = 116.0
+margin/left = 288.0
+margin/top = 210.0
+margin/right = 308.0
+margin/bottom = 230.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -423,11 +428,30 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 71.0
+margin/top = 30.0
+margin/right = 111.0
+margin/bottom = 44.0
+text = "aaaa"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
+
+[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="OptionMenu" method="_on_Button_pressed"]
 
 [connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
 
-[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="OptionMenu" method="_on_Button_pressed"]
+[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/GridContainer/Button7" to="." method="_on_Button7_pressed"]
+
+[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/GridContainer/Button8" to="." method="_on_Button8_pressed"]
 
 [connection signal="pressed" from="BottonPanel/HBoxContainer/Bulid_btt" to="." method="_on_Bulid_btt_pressed"]
 

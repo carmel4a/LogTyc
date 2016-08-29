@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://res/Tileset/Tileset2/tileset2.tres" type="TileSet" id=1]
+[ext_resource path="res://res/Tileset/Tileset2/Tileset2.gd" type="Script" id=2]
 
 [node name="TileMap" type="TileMap"]
 
@@ -19,5 +20,6 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
+script/script = ExtResource( 2 )
 
 
