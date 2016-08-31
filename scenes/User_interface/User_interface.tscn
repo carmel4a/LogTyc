@@ -29,8 +29,23 @@ popup/exclusive = false
 items = [  ]
 script/script = ExtResource( 2 )
 
+[node name="orders" type="PopupMenu" parent="PopupMenu"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 20.0
+margin/bottom = 20.0
+popup/exclusive = false
+items = [  ]
+
 [node name="OptionMenu" type="PanelContainer" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -444,6 +459,8 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
+
+[connection signal="item_pressed" from="PopupMenu/orders" to="." method="_on_orders_item_pressed"]
 
 [connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="OptionMenu" method="_on_Button_pressed"]
 

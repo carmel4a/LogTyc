@@ -9,4 +9,5 @@ extends Node
 
 
 func _ready():
-	pass
+	get_node("tick_timer").set_wait_time(0.5)
+	get_node("tick_timer").set_active(true)

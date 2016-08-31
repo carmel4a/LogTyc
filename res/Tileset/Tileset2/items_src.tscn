@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://res/Tileset/Tileset2/items.png" type="Texture" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 128, 128 )
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 128, 0, 128, 128 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 256, 0, 128, 128 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 128, 128, 128 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 384, 0, 128, 128 )
+
+

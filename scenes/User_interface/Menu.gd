@@ -32,7 +32,13 @@ func _process(delta):
 
 		if abs(shift.length()-get_viewport().get_mouse_pos().length()) <= click_margin:
 			clear()
+			get_node("orders").clear()
 			add_item("test", 0, 0)
+			add_submenu_item("orers","orders")
+			get_node("orders").add_item("left",0,0)
+			get_node("orders").add_item("down",1,0)
+			get_node("orders").add_item("right",2,0)
+			get_node("orders").add_item("up",3,0)
 			set_pos(get_viewport().get_mouse_pos())
 			show_modal()
 			showed = 1
