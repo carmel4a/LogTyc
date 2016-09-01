@@ -59,9 +59,7 @@ func _on_PopupMenu_item_pressed( ID ):
 func _on_orders_item_pressed( ID ):
 	connect("_UI_added_order",get_node("../Level"),"add_order",[], 4)
 		
-	mouse = get_node("../mouse_pos").get_global_mouse_pos()
-	tx = floor(mouse.x/128)
-	ty = floor(mouse.y/128)
+
 	emit_signal("_UI_added_order", tx, ty, ID)
 #	emit_signal("_UI_added_order", floor(mouse.x/128), floor(mouse.y/128), str(ID))
 
