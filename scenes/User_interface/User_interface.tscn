@@ -1,10 +1,32 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=12 format=1]
 
-[ext_resource path="res://scenes/User_interface/User_interface.gd" type="Script" id=1]
+[ext_resource path="res://res/pannet_test.png" type="Texture" id=1]
 [ext_resource path="res://scenes/User_interface/Menu.gd" type="Script" id=2]
-[ext_resource path="res://scenes/User_interface/OptionMenu.gd" type="Script" id=3]
-[ext_resource path="res://res/Tileset/Tileset2/1.png" type="Texture" id=4]
-[ext_resource path="res://res/Tileset/Tileset2/2.png" type="Texture" id=5]
+[ext_resource path="res://res/UI/botton_menu/botton_menu_r.png" type="Texture" id=3]
+[ext_resource path="res://scenes/User_interface/Botton_menu.gd" type="Script" id=4]
+[ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_np.png" type="Texture" id=5]
+[ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_p.png" type="Texture" id=6]
+[ext_resource path="res://res/UI/option_menu/option_menu.png" type="Texture" id=7]
+[ext_resource path="res://scenes/User_interface/OptionMenu.gd" type="Script" id=8]
+[ext_resource path="res://res/UI/option_menu/types.png" type="Texture" id=9]
+[ext_resource path="res://res/Tileset/Tileset2/items.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Hide"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5, 0.7 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 330, 546 ), Vector2( 330, 594 ), Vector2( 330, 600 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("hide_button:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0.5, 0.7 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 70, -10 ), Vector2( 70, -16 ) ] }
 
 [node name="User_interface" type="CanvasLayer"]
 
@@ -12,7 +34,22 @@ layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
-script/script = ExtResource( 1 )
+
+[node name="TextureFrame 2" type="TextureFrame" parent="."]
+
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 568.0
+margin/right = 800.0
+margin/bottom = 600.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = { "_edit_lock_":true }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 
@@ -43,331 +80,10 @@ margin/bottom = 20.0
 popup/exclusive = false
 items = [  ]
 
-[node name="OptionMenu" type="PanelContainer" parent="."]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 13.0
-margin/top = 12.0
-margin/right = 227.0
-margin/bottom = 280.0
-script/script = ExtResource( 3 )
-__meta__ = { "_edit_group_":true }
-
-[node name="CenterContainer" type="CenterContainer" parent="OptionMenu"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 315.0
-margin/bottom = 261.0
-use_top_left = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionMenu/CenterContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 254.0
-alignment = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="OptionMenu/CenterContainer/VBoxContainer"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 20.0
-alignment = 2
-
-[node name="Button" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer"]
-
-rect/min_size = Vector2( 12, 12 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 289.0
-margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 20.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "x"
-flat = false
-
-[node name="GridContainer" type="GridContainer" parent="OptionMenu/CenterContainer/VBoxContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 24.0
-margin/right = 308.0
-margin/bottom = 254.0
-columns = 3
-
-[node name="Button7" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 140.0
-margin/bottom = 134.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-icon = ExtResource( 4 )
-flat = false
-
-[node name="Button8" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 144.0
-margin/top = 0.0
-margin/right = 284.0
-margin/bottom = 134.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-icon = ExtResource( 5 )
-flat = false
-
-[node name="Button9" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 288.0
-margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 134.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button10" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 138.0
-margin/right = 140.0
-margin/bottom = 158.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button11" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 144.0
-margin/top = 138.0
-margin/right = 284.0
-margin/bottom = 158.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button12" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 288.0
-margin/top = 138.0
-margin/right = 308.0
-margin/bottom = 158.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button13" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 162.0
-margin/right = 140.0
-margin/bottom = 182.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button14" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 144.0
-margin/top = 162.0
-margin/right = 284.0
-margin/bottom = 182.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button15" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 288.0
-margin/top = 162.0
-margin/right = 308.0
-margin/bottom = 182.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button16" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 186.0
-margin/right = 140.0
-margin/bottom = 206.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button17" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 144.0
-margin/top = 186.0
-margin/right = 284.0
-margin/bottom = 206.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button18" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 288.0
-margin/top = 186.0
-margin/right = 308.0
-margin/bottom = 206.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button19" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 210.0
-margin/right = 140.0
-margin/bottom = 230.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button20" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 144.0
-margin/top = 210.0
-margin/right = 284.0
-margin/bottom = 230.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Button21" type="Button" parent="OptionMenu/CenterContainer/VBoxContainer/GridContainer"]
-
-rect/min_size = Vector2( 20, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 288.0
-margin/top = 210.0
-margin/right = 308.0
-margin/bottom = 230.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
 [node name="BottonPanel" type="PanelContainer" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 anchor/left = 3
 anchor/top = 1
 anchor/right = 3
@@ -378,8 +94,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 59.0
 margin/top = 47.0
-margin/right = -59.0
-margin/bottom = 5.0
+margin/right = -61.0
+margin/bottom = 1.0
 __meta__ = { "_edit_group_":true, "_edit_lock_":true }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottonPanel"]
@@ -443,37 +159,412 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="BottonPanel1" type="PanelContainer" parent="."]
+
+editor/display_folded = true
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 47.0
+margin/top = 50.0
+margin/right = 1.0
+margin/bottom = 4.0
+__meta__ = { "_edit_group_":true }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottonPanel1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 39.0
+margin/bottom = 39.0
+custom_constants/separation = 5
+alignment = 0
+
+[node name="Bulid_btt" type="Button" parent="BottonPanel1/HBoxContainer"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
 [node name="Label" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 71.0
-margin/top = 30.0
-margin/right = 111.0
-margin/bottom = 44.0
-text = "aaaa"
+margin/left = 10.0
+margin/top = 584.0
+margin/right = 159.0
+margin/bottom = 602.0
+text = "test"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Botton_menu" type="Patch9Frame" parent="."]
+
+anchor/bottom = 1
+rect/min_size = Vector2( 0, 54 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 330.0
+margin/top = 600.0
+margin/right = 411.0
+margin/bottom = -54.0
+texture = ExtResource( 3 )
+patch_margin/left = 14
+patch_margin/top = 6
+patch_margin/right = 13
+script/script = ExtResource( 4 )
+
+[node name="hide_button" type="TextureButton" parent="Botton_menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 70.0
+margin/top = -16.0
+margin/right = 86.0
+margin/bottom = 0.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 6 )
+
+[node name="Buttons" type="HBoxContainer" parent="Botton_menu"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="Button" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button2" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 0.0
+margin/right = 68.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button3" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 72.0
+margin/top = 0.0
+margin/right = 104.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button4" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 108.0
+margin/top = 0.0
+margin/right = 140.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button5" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 144.0
+margin/top = 0.0
+margin/right = 176.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Button6" type="Button" parent="Botton_menu/Buttons"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 180.0
+margin/top = 0.0
+margin/right = 212.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Botton_menu"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hide = SubResource( 1 )
+next/Hide = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Option_menu" type="Patch9Frame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 1.0
+margin/right = 232.0
+margin/bottom = 329.0
+texture = ExtResource( 7 )
+patch_margin/left = 4
+patch_margin/top = 4
+patch_margin/right = 4
+patch_margin/bottom = 4
+script/script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Option_menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 19.0
+margin/right = 72.0
+margin/bottom = 59.0
+text = "tr(\"BUY\")"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="Option_menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 90.0
+margin/right = 72.0
+margin/bottom = 130.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Option_menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 0
+margin/left = 200.0
+margin/top = 18.0
+margin/right = 212.0
+margin/bottom = 38.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Types" type="GridContainer" parent="Option_menu"]
+
+editor/display_folded = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 1
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 45.0
+margin/right = 10.0
+margin/bottom = 45.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 6
+
+[node name="Vech" type="Button" parent="Option_menu/Types"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Option_menu/Types/Vech"]
+
+transform/pos = Vector2( 16, 16 )
+texture = ExtResource( 9 )
+region = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="Infr" type="Button" parent="Option_menu/Types"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 37.0
+margin/top = 0.0
+margin/right = 69.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Option_menu/Types/Infr"]
+
+transform/pos = Vector2( 16, 16 )
+texture = ExtResource( 9 )
+region = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="Vech" type="GridContainer" parent="Option_menu"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 1
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 116.0
+margin/right = 10.0
+margin/bottom = 12.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 6
+
+[node name="Button" type="Button" parent="Option_menu/Vech"]
+
+rect/min_size = Vector2( 32, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Option_menu/Vech/Button"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+region = true
+region_rect = Rect2( 128, 0, 128, 128 )
+
 [connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
 
+[connection signal="item_pressed" from="PopupMenu" to="PopupMenu" method="_on_PopupMenu_item_pressed"]
+
 [connection signal="item_pressed" from="PopupMenu/orders" to="." method="_on_orders_item_pressed"]
-
-[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="OptionMenu" method="_on_Button_pressed"]
-
-[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
-
-[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/GridContainer/Button7" to="." method="_on_Button7_pressed"]
-
-[connection signal="pressed" from="OptionMenu/CenterContainer/VBoxContainer/GridContainer/Button8" to="." method="_on_Button8_pressed"]
 
 [connection signal="pressed" from="BottonPanel/HBoxContainer/Bulid_btt" to="." method="_on_Bulid_btt_pressed"]
 
 [connection signal="pressed" from="BottonPanel/HBoxContainer/Orders_btt" to="." method="_on_Orders_btt_pressed"]
 
 [connection signal="pressed" from="BottonPanel/HBoxContainer/Stats_btt" to="." method="_on_Stats_btt_pressed"]
+
+[connection signal="pressed" from="Botton_menu/hide_button" to="Botton_menu" method="_on_hide_button_pressed"]
+
+[connection signal="pressed" from="Option_menu/Button" to="Option_menu" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="Option_menu/Types/Vech" to="Option_menu" method="_on_Vech_pressed"]
+
+[connection signal="pressed" from="Option_menu/Types/Infr" to="Option_menu" method="_on_Infr_pressed"]
+
+[connection signal="pressed" from="Option_menu/Vech/Button" to="Option_menu" method="_on_Button_vech_v1_pressed"]
 
 
