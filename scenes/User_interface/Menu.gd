@@ -40,6 +40,7 @@ func _process(delta):
 			get_node("orders").clear()
 			add_item(tr("BUY"))
 			add_item(tr("SELL"))
+			add_item("Buy goods")
 #			add_submenu_item("orers","orders")
 #			get_node("orders").add_item("up",0,0)
 			show_modal()

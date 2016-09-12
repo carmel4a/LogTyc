@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://res/Units/Human/Worker.gd" type="Script" id=1]
+[ext_resource path="res://res/Units/Human/Walk/1_bgr.png" type="Texture" id=2]
+[ext_resource path="res://res/Units/Human/Walk/2_Skin.png" type="Texture" id=3]
+[ext_resource path="res://res/Units/Human/Walk/3_Shirt.png" type="Texture" id=4]
+[ext_resource path="res://res/Units/Human/Walk/4_Bootst.png" type="Texture" id=5]
+[ext_resource path="res://res/Units/Human/Walk/5_Trousers.png" type="Texture" id=6]
+[ext_resource path="res://res/Units/Human/Walk/6_Hair.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Walk"
+length = 0.07
+loop = true
+step = 0.01
+tracks/0/type = "method"
+tracks/0/path = NodePath("")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0.05 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"walk" } ] }
+
+[node name="Worker" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="spritles" type="Node" parent="."]
+
+[node name="walk" type="Node" parent="spritles"]
+
+[node name="bgr" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bgr1" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bgr2" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 4 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bgr3" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bgr4" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 6 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bgr5" type="Sprite" parent="spritles/walk"]
+
+texture = ExtResource( 7 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="Orders" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Walk = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

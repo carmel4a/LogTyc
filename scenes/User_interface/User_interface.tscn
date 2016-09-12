@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://res/pannet_test.png" type="Texture" id=1]
 [ext_resource path="res://scenes/User_interface/Menu.gd" type="Script" id=2]
@@ -7,26 +7,9 @@
 [ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_np.png" type="Texture" id=5]
 [ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_p.png" type="Texture" id=6]
 [ext_resource path="res://res/UI/option_menu/option_menu.png" type="Texture" id=7]
-[ext_resource path="res://scenes/User_interface/OptionMenu.gd" type="Script" id=8]
+[ext_resource path="res://scenes/User_interface/opition_menu/OptionMenu.gd" type="Script" id=8]
 [ext_resource path="res://res/UI/option_menu/types.png" type="Texture" id=9]
-[ext_resource path="res://res/Tileset/Tileset2/items.png" type="Texture" id=10]
-
-[sub_resource type="Animation" id=1]
-
-resource/name = "Hide"
-length = 0.8
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect/pos")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.5, 0.7 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 330, 546 ), Vector2( 330, 594 ), Vector2( 330, 600 ) ] }
-tracks/1/type = "value"
-tracks/1/path = NodePath("hide_button:rect/pos")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0.5, 0.7 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 70, -10 ), Vector2( 70, -16 ) ] }
+[ext_resource path="res://scenes/User_interface/opition_menu/button.tscn" type="PackedScene" id=10]
 
 [node name="User_interface" type="CanvasLayer"]
 
@@ -53,6 +36,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -79,85 +63,6 @@ margin/right = 20.0
 margin/bottom = 20.0
 popup/exclusive = false
 items = [  ]
-
-[node name="BottonPanel" type="PanelContainer" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-anchor/left = 3
-anchor/top = 1
-anchor/right = 3
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 59.0
-margin/top = 47.0
-margin/right = -61.0
-margin/bottom = 1.0
-__meta__ = { "_edit_group_":true, "_edit_lock_":true }
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BottonPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 113.0
-margin/bottom = 39.0
-custom_constants/separation = 5
-alignment = 0
-
-[node name="Bulid_btt" type="Button" parent="BottonPanel/HBoxContainer"]
-
-rect/min_size = Vector2( 32, 32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 32.0
-margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Orders_btt" type="Button" parent="BottonPanel/HBoxContainer"]
-
-rect/min_size = Vector2( 32, 32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 37.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Stats_btt" type="Button" parent="BottonPanel/HBoxContainer"]
-
-rect/min_size = Vector2( 32, 32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 74.0
-margin/top = 0.0
-margin/right = 106.0
-margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
 
 [node name="BottonPanel1" type="PanelContainer" parent="."]
 
@@ -222,6 +127,7 @@ max_lines_visible = -1
 
 [node name="Botton_menu" type="Patch9Frame" parent="."]
 
+editor/display_folded = true
 anchor/bottom = 1
 rect/min_size = Vector2( 0, 54 )
 focus/ignore_mouse = false
@@ -364,27 +270,15 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Botton_menu"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/Hide = SubResource( 1 )
-next/Hide = ""
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
 [node name="Option_menu" type="Patch9Frame" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -2.0
+margin/left = -1.0
 margin/top = 1.0
-margin/right = 232.0
+margin/right = 233.0
 margin/bottom = 329.0
 texture = ExtResource( 7 )
 patch_margin/left = 4
@@ -393,7 +287,25 @@ patch_margin/right = 4
 patch_margin/bottom = 4
 script/script = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="Option_menu"]
+[node name="Option_menu1" type="Patch9Frame" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -1.0
+margin/top = 1.0
+margin/right = 233.0
+margin/bottom = 329.0
+texture = ExtResource( 7 )
+patch_margin/left = 4
+patch_margin/top = 4
+patch_margin/right = 4
+patch_margin/bottom = 4
+script/script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Option_menu1"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -408,7 +320,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label1" type="Label" parent="Option_menu"]
+[node name="Label1" type="Label" parent="Option_menu1"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -422,7 +334,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Button" type="Button" parent="Option_menu"]
+[node name="exit" type="Button" parent="Option_menu1"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -437,24 +349,30 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="Types" type="GridContainer" parent="Option_menu"]
+[node name="Main_tabs" type="Control" parent="Option_menu1"]
 
-editor/display_folded = true
-anchor/right = 1
-anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="Main_type" type="GridContainer" parent="Option_menu1/Main_tabs"]
+
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 1
+size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 45.0
-margin/right = 10.0
-margin/bottom = 45.0
-custom_constants/vseparation = 5
-custom_constants/hseparation = 5
-columns = 6
+margin/left = 13.0
+margin/top = 52.0
+margin/right = 214.0
+margin/bottom = 94.0
+columns = 5
 
-[node name="Vech" type="Button" parent="Option_menu/Types"]
+[node name="vehs" type="Button" parent="Option_menu1/Main_tabs/Main_type"]
 
 editor/display_folded = true
 rect/min_size = Vector2( 32, 32 )
@@ -470,101 +388,53 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
-__meta__ = { "_edit_lock_":true }
 
-[node name="Sprite" type="Sprite" parent="Option_menu/Types/Vech"]
+[node name="Sprite" type="Sprite" parent="Option_menu1/Main_tabs/Main_type/vehs"]
 
 transform/pos = Vector2( 16, 16 )
 texture = ExtResource( 9 )
 region = true
 region_rect = Rect2( 0, 0, 32, 32 )
 
-[node name="Infr" type="Button" parent="Option_menu/Types"]
+[node name="goods" parent="Option_menu1/Main_tabs/Main_type" instance=ExtResource( 10 )]
 
-editor/display_folded = true
-rect/min_size = Vector2( 32, 32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 37.0
-margin/top = 0.0
-margin/right = 69.0
+margin/left = 36.0
+margin/right = 36.0
 margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-__meta__ = { "_edit_lock_":true }
+texture_src = "res://res/Goods/Goods.png"
 
-[node name="Sprite" type="Sprite" parent="Option_menu/Types/Infr"]
+[node name="Content_tabs" type="Control" parent="Option_menu1"]
 
-transform/pos = Vector2( 16, 16 )
-texture = ExtResource( 9 )
-region = true
-region_rect = Rect2( 32, 0, 32, 32 )
-
-[node name="Vech" type="GridContainer" parent="Option_menu"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 1
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 116.0
-margin/right = 10.0
-margin/bottom = 12.0
-custom_constants/vseparation = 5
-custom_constants/hseparation = 5
-columns = 6
-
-[node name="Button" type="Button" parent="Option_menu/Vech"]
-
-rect/min_size = Vector2( 32, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 32.0
-margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-__meta__ = { "_edit_lock_":true }
+margin/right = 0.0
+margin/bottom = 0.0
 
-[node name="Sprite" type="Sprite" parent="Option_menu/Vech/Button"]
+[node name="content_vech" type="GridContainer" parent="Option_menu1/Content_tabs"]
 
-transform/pos = Vector2( 16, 16 )
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
-region = true
-region_rect = Rect2( 128, 0, 128, 128 )
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 13.0
+margin/top = 120.0
+margin/right = 214.0
+margin/bottom = 162.0
+columns = 5
+
+[node name="Worker" parent="Option_menu1/Content_tabs/content_vech" instance=ExtResource( 10 )]
+
+texture_src = "res://res/Units/Human/icon.png"
 
 [connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
 
 [connection signal="item_pressed" from="PopupMenu" to="PopupMenu" method="_on_PopupMenu_item_pressed"]
 
 [connection signal="item_pressed" from="PopupMenu/orders" to="." method="_on_orders_item_pressed"]
-
-[connection signal="pressed" from="BottonPanel/HBoxContainer/Bulid_btt" to="." method="_on_Bulid_btt_pressed"]
-
-[connection signal="pressed" from="BottonPanel/HBoxContainer/Orders_btt" to="." method="_on_Orders_btt_pressed"]
-
-[connection signal="pressed" from="BottonPanel/HBoxContainer/Stats_btt" to="." method="_on_Stats_btt_pressed"]
-
-[connection signal="pressed" from="Botton_menu/hide_button" to="Botton_menu" method="_on_hide_button_pressed"]
-
-[connection signal="pressed" from="Option_menu/Button" to="Option_menu" method="_on_Button_pressed"]
-
-[connection signal="pressed" from="Option_menu/Types/Vech" to="Option_menu" method="_on_Vech_pressed"]
-
-[connection signal="pressed" from="Option_menu/Types/Infr" to="Option_menu" method="_on_Infr_pressed"]
-
-[connection signal="pressed" from="Option_menu/Vech/Button" to="Option_menu" method="_on_Button_vech_v1_pressed"]
 
 

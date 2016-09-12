@@ -24,13 +24,5 @@ func _ready():
 	get_node("Buttons").set_anchor_and_margin(2,1,txt_mar_r+btt_mar)
 	get_node("Buttons").set_anchor_and_margin(3,1,txt_mar_b+btt_mar)
 	get_node("Buttons").set("custom_constants/separation",btt_b_mar)
-	
-func _on_hide_button_pressed():
-#	if hidden == 0:
-		get_node("AnimationPlayer").play("Hide")
-		hidden = 1
-#	else:
-		hidden = 0
-#		get_node("AnimationPlayer").play_backwards("Hide")
 
 var type_of_action = 0

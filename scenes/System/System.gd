@@ -1,5 +1,22 @@
 extends Node
-# There will be preloads to every entity in game like vech., units, stuff, bldgs.
+
+var buy={
+	"Units":{
+		"Worker":preload("res://res/Units/Human/Worker.tscn"),
+	},
+	"Infra":{
+#		"Worker":preload("res://res/Units/Human/Worker.tscn"),
+		"a":"",
+		"b":"",
+		"c":"",
+		"road":{
+			"dirt":"",
+			"asphalt":""
+		}
+	},
+	"Unitsb":{
+	}
+}
 func _ready():
 	pass
 

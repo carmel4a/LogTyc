@@ -9,7 +9,7 @@ func _ready():
 
 func _on_veh_choosed(name):
 	if name == "Veh1":
-		print("dziala")
+		
 		
 		var a = Sprite.new()
 		a.set_global_pos(get_node("../../../mouse_pos").get_global_mouse_pos())

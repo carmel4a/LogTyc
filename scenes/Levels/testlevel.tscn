@@ -20,6 +20,8 @@ script/script = null
 
 script/script = ExtResource( 4 )
 
+[node name="Goods" type="Node" parent="Layers"]
+
 [node name="Metainfo" type="Node" parent="."]
 
 

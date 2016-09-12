@@ -16,7 +16,7 @@ func _tick():
 	GetOrder()
 	CheckLoad()
 	Move()
-	print("work")
+	
 func Move():
 	if order == "90":
 		set_global_pos(get_global_pos()+Vector2(128,0))
