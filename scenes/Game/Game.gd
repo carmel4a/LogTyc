@@ -12,6 +12,7 @@ func _ready():
 	get_node("tick_timer").set_active(true)
 	set_process(true)
 func _process(delta):
+	
 	if Input.is_action_pressed("ui_select") == true:
 		if paused == 1:
 			get_node("tick_timer").set_wait_time(0.5)

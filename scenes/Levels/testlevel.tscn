@@ -16,7 +16,7 @@ script/script = null
 
 [node name="Layers" type="Node" parent="."]
 
-[node name="Vehicles" type="Node" parent="Layers"]
+[node name="Units" type="Node" parent="Layers"]
 
 script/script = ExtResource( 4 )
 

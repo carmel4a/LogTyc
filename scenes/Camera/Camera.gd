@@ -23,7 +23,7 @@ const camera_margin = 50
 # Camera speed in px/s. It is changing in the code by zoom, to keep const. speed value.
 var camera_speed = 450 
 # It changes a camera zoom value in ?units, but it works... (x, y) (ps. prob. in view multiples ).
-const camera_zoom_speed = Vector2(1, 1)
+const camera_zoom_speed = Vector2(0.5, 0.5)
 # Vector of actual position of camera.
 var camera_movement = Vector2()
 # Previouse mouse position used to count delta of the mouse movement.
@@ -32,16 +32,14 @@ var prev_mouse_pos = null
 # After creation (...)
 func _ready():
 # Process _process every rendder frame and _imput function every recive an event.
-	set_process(true)
+	set_fixed_process(true)
 	set_process_input(true)
 
-func _process(delta):
-	
-	
-	
+func _fixed_process(delta):
 # Set camera movement to zero, and update camera speed. (sry!)
-	camera_speed = 450 * 2*sqrt(camera_zoom.x)
-	camera_movement = Vector2()
+	camera_speed = 450
+#	camera_speed = 450 * 2*sqrt(camera_zoom.x)
+	camera_movement = Vector2(0,0)
 # Control by keyboard handled by @ImputMap.
 	if key == true:
 		if Input.is_action_pressed("ui_up"):
@@ -67,7 +65,7 @@ func _process(delta):
 		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 			camera_movement = prev_mouse_pos - get_viewport().get_mouse_pos()
 # Update position of the camera, and mouse.
-	set_pos(get_pos()+camera_movement)
+	set_pos(get_pos()+camera_movement*get_zoom())
 	prev_mouse_pos = get_viewport().get_mouse_pos()
 
 

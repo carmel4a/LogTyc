@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Camera/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/User_interface/User_interface.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Levels/testlevel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://res/Units/Human/Worker.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node"]
 
@@ -13,7 +12,9 @@ script/script = ExtResource( 1 )
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1.32684, 1.32684 )
-current = true
+limit/left = -65536
+limit/top = -65536
+limit/right = 65535
 limit/bottom = 65535
 
 [node name="User_interface" parent="." instance=ExtResource( 3 )]
@@ -35,10 +36,8 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Worker" parent="." instance=ExtResource( 5 )]
+[connection signal="timeout" from="tick_timer" to="." method="Moves"]
 
 [connection signal="timeout" from="tick_timer" to="." method="_tick"]
-
-[connection signal="timeout" from="tick_timer" to="." method="Moves"]
 
 

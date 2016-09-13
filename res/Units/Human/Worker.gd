@@ -1,6 +1,5 @@
 
 extends Node
-
 var x
 var y
 var sq = 1
