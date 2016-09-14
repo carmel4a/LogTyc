@@ -7,15 +7,14 @@ var timer_delay = 0.2
 # Is menu showed?
 var showed = 0
 # Vector of mouse's motion.
-
+var blokade = 0
 func _ready():
 	set_process(true)
-
+	set_process_input(true)
 func _process(delta):
-
 	get_node("../Label").set_text(str(OS.get_frames_per_second()))
 
-	if get_node("../Botton_menu").type_of_action == 0 and System.is_drag()==false and showed == 0:
+	if get_node("../Botton_menu").type_of_action == 0 and System.is_drag()==false and showed == 0 and blokade == 0:
 		var mouse = Vector2()
 		mouse = get_node("../../mouse_pos").get_global_mouse_pos()
 #		get_parent().tx = floor(mouse.x/128)
@@ -34,9 +33,13 @@ func _process(delta):
 
 	if is_hidden() == true:
 		showed = 0
-		
+		System.pressd=0
 
 
 func _on_PopupMenu_item_pressed( ID ):
 	if ID == 0:
 		get_node("../Option_menu").show()
+
+func _input(event):
+	if event.is_action_pressed("con_menu"):
+		

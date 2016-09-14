@@ -23,15 +23,27 @@ func _ready():
 #		a.set_region(true)
 #		a.show()
 #		add_child(a)
+var adding = 0
 func adding_item(name_of_item):
-	shadow = System.buy[get_name()][name_of_item].instance()
-	shadow.set_name("shadow")
-	add_child(shadow)
+	get_node("../../../User_interface/PopupMenu").set("blokade",1)
+	if adding == 0:
+		adding = 1
+		shadow = System.buy[get_name()][name_of_item].instance()
+		shadow.set_name("shadow")
+		add_child(shadow)
+		set_process(true)
 
-	print(str(shadow))
-	set_process(true)
-	set_process_input(true)
 
 func _process(delta):
 	get_node("shadow").set_pos(get_node("../../../mouse_pos").get_global_mouse_pos())
 	print(System.is_drag())
+	if (System.is_drag==false and adding == 1):
+		print("in if")
+		remove_child(get_node("shadow"))
+		adding = 0
+		get_node("../../../User_interface/PopupMenu").blokade=0
+		System.pressd=0
+		set_process(false)
+#	
+		
+		

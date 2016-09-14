@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/System/System.gd" type="Script" id=1]
 
-[node name="System" type="Node"]
+[node name="System" type="Node2D"]
 
 script/script = ExtResource( 1 )
 

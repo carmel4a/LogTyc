@@ -6,7 +6,7 @@ var sq = 1
 var unkeep = 0.3
 var walk={"frames":16}
 func _ready():
-	get_node("AnimationPlayer").play("Walk")
+#	get_node("AnimationPlayer").play("Walk")
 	set_process(true)
 func _process(delta):
 	

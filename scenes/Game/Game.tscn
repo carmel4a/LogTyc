@@ -36,8 +36,8 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[connection signal="timeout" from="tick_timer" to="." method="Moves"]
-
 [connection signal="timeout" from="tick_timer" to="." method="_tick"]
+
+[connection signal="timeout" from="tick_timer" to="." method="Moves"]
 
 
