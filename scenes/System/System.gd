@@ -2,42 +2,46 @@ extends Node2D
 
 var buy={
 	"Units":{
-		"Worker":preload("res://res/Units/Human/Worker.tscn"),
+		"Worker":preload("res://scenes/Units/Worker/Worker.tscn"),
 	}
 }
 func _ready():
 	set_process_input(true)
 	set_process(true)
 
-# If button was preesed?
-# idle 0
-# pressed 1
-# drag 2
-# relased 3
+
 var click_margin = 20
-var shift = Vector2(0,0)
-var pressd = 0
+var mo_po = Vector2(0,0)
+var rmb_pos = Vector2(0,0)
+var action
+var blocade = 0
 var is_drag
 
 func _process(delta):
 	is_drag = is_drag()
-func is_drag():
-	
-	if pressd == 1:
-		shift = Vector2(0,0)
-		shift = get_global_mouse_pos()
-		pressd =2
-	if pressd == 3:
-		if abs(shift.length()-get_global_mouse_pos().length()) <= click_margin:
-			# do something if it is NOT a drag
-			return(false)
-		else:
-			return(true)
-	pressd = 0
 
-	
+func is_drag():
+	if action ==0:
+		mo_po = get_global_mouse_pos()
+		return (-1)
+	if action ==1 and blocade==0:
+		rmb_pos = get_global_mouse_pos()
+		blocade = 1
+		return (-1)
+	if action ==2:
+		var shift = sqrt(pow((rmb_pos.x-mo_po.x),2)+pow((rmb_pos.y-mo_po.y),2))
+		if shift > click_margin:
+			return (1)
+		else:
+			return (0)
+
+		
 func _input(event):
-	if event.is_action_pressed("con_menu"):
-		pressd = 1
-	if event.is_action_released("con_menu"):
-		pressd = 3
+	if (event.type == InputEvent.MOUSE_BUTTON) or (event.type == InputEvent.MOUSE_MOTION) :
+		if event.is_action_pressed("con_menu") and blocade!=1:
+			action = 1
+		elif event.is_action_released("con_menu") and blocade!=0:
+			action = 2
+			blocade = 0
+		else:
+			action = 0

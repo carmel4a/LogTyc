@@ -45,7 +45,7 @@ func _ready():
 		
 		a.hide()
 		
-		var s = preload("res://scenes/User_interface/opition_menu/button_l.gd")
+		var s = preload("res://scenes/UI/opition_menu/button.gd")
 
 		print(i)
 		for j in System.buy[i]:
@@ -62,13 +62,23 @@ func _ready():
 			b.add_child(icon)
 			icon.set_texture(load("res://res/Icons/"+str(i)+"/"+str(j)+"/icon.png"))
 			icon.set_pos(Vector2(16,16))
-			
+	
 
 	
 	set_size(Vector2(max_colums*icon_size+(max_colums+1)*grid_h_separation+left_margin,get_size().y))
 	for i in get_children():
 		if i.is_type("GridContainer") == true and i.get_name()!="main_grid":
 			i.set_pos(Vector2(left_margin, main_grid.get_pos().y + main_grid.get_size().y+part_margin))
+
+	var ex_t= preload("res://res/UI/option_menu/exit.png")
+	add_child(exit_button)
+	exit_button.set_normal_texture(ex_t)
+	exit_button.set_pos(Vector2(max_colums*icon_size+(max_colums+1)*grid_h_separation+left_margin-exit_button.get_normal_texture().get_size().x,0))
+	exit_button.connect("pressed",self,"_hide")
+	hide()
+
+func _hide():
+	hide()
 
 func change_tab(show):
 	for i in get_children():

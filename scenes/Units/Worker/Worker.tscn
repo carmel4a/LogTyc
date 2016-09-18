@@ -1,12 +1,19 @@
 [gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://res/Units/Human/Worker.gd" type="Script" id=1]
-[ext_resource path="res://res/Units/Human/Walk/1_bgr.png" type="Texture" id=2]
-[ext_resource path="res://res/Units/Human/Walk/2_Skin.png" type="Texture" id=3]
-[ext_resource path="res://res/Units/Human/Walk/3_Shirt.png" type="Texture" id=4]
-[ext_resource path="res://res/Units/Human/Walk/4_Bootst.png" type="Texture" id=5]
-[ext_resource path="res://res/Units/Human/Walk/5_Trousers.png" type="Texture" id=6]
-[ext_resource path="res://res/Units/Human/Walk/6_Hair.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Units/Worker/Worker.gd" type="Script" id=1]
+[ext_resource path="res://res/Units/Worker/Walk/1_bgr.png" type="Texture" id=2]
+[ext_resource path="res://res/Units/Worker/Walk/2_Skin.png" type="Texture" id=3]
+[ext_resource path="res://res/Units/Worker/Walk/3_Shirt.png" type="Texture" id=4]
+[ext_resource path="res://res/Units/Worker/Walk/4_Bootst.png" type="Texture" id=5]
+[ext_resource path="res://res/Units/Worker/Walk/5_Trousers.png" type="Texture" id=6]
+[ext_resource path="res://res/Units/Worker/Walk/6_Hair.png" type="Texture" id=7]
+
+
+
+
+
+
+
 
 [sub_resource type="Animation" id=1]
 

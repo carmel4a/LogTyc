@@ -1,25 +1,27 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
-[ext_resource path="res://res/pannet_test.png" type="Texture" id=1]
-[ext_resource path="res://scenes/User_interface/Menu.gd" type="Script" id=2]
+[ext_resource path="res://res/UI/botton_pannel_flat.png" type="Texture" id=1]
+[ext_resource path="res://scenes/UI/Menu.gd" type="Script" id=2]
 [ext_resource path="res://res/UI/botton_menu/botton_menu_r.png" type="Texture" id=3]
-[ext_resource path="res://scenes/User_interface/Botton_menu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/UI/Botton_menu.gd" type="Script" id=4]
 [ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_np.png" type="Texture" id=5]
 [ext_resource path="res://res/UI/botton_menu/botton_menu_c_b_p.png" type="Texture" id=6]
 [ext_resource path="res://res/UI/option_menu/option_menu.png" type="Texture" id=7]
-[ext_resource path="res://scenes/User_interface/opition_menu/OptionMenu.gd" type="Script" id=8]
-[ext_resource path="res://res/UI/option_menu/types.png" type="Texture" id=9]
-[ext_resource path="res://scenes/User_interface/opition_menu/button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/UI/opition_menu/OptionMenu.gd" type="Script" id=8]
+[ext_resource path="res://res/UI/money_icon.png" type="Texture" id=9]
+[ext_resource path="res://res/UI/botton_label.png" type="Texture" id=10]
+[ext_resource path="res://scenes/DEBUG/regenerate.gd" type="Script" id=11]
 
-[node name="User_interface" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer"]
 
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="TextureFrame 2" type="TextureFrame" parent="."]
+[node name="BottonPanel2" type="TextureFrame" parent="."]
 
+anchor/right = 1
 rect/min_size = Vector2( 0, 32 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -27,7 +29,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 568.0
-margin/right = 800.0
+margin/right = 0.0
 margin/bottom = 600.0
 texture = ExtResource( 1 )
 expand = true
@@ -79,7 +81,7 @@ margin/left = 47.0
 margin/top = 50.0
 margin/right = 1.0
 margin/bottom = 4.0
-__meta__ = { "_edit_group_":true }
+__meta__ = { "_edit_group_":true, "_edit_lock_":true }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottonPanel1"]
 
@@ -110,21 +112,6 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="Label" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 584.0
-margin/right = 159.0
-margin/bottom = 602.0
-text = "test"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="Botton_menu" type="Patch9Frame" parent="."]
 
 editor/display_folded = true
@@ -143,6 +130,7 @@ patch_margin/left = 14
 patch_margin/top = 6
 patch_margin/right = 13
 script/script = ExtResource( 4 )
+__meta__ = { "_edit_lock_":true }
 
 [node name="hide_button" type="TextureButton" parent="Botton_menu"]
 
@@ -163,7 +151,6 @@ textures/hover = ExtResource( 6 )
 
 [node name="Buttons" type="HBoxContainer" parent="Botton_menu"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 0
@@ -286,156 +273,56 @@ patch_margin/top = 4
 patch_margin/right = 4
 patch_margin/bottom = 4
 script/script = ExtResource( 8 )
+__meta__ = { "_edit_lock_":true }
 
-[node name="Option_menu1" type="Patch9Frame" parent="."]
+[node name="money_icon" type="Sprite" parent="."]
 
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -1.0
-margin/top = 1.0
-margin/right = 233.0
-margin/bottom = 329.0
-texture = ExtResource( 7 )
-patch_margin/left = 4
-patch_margin/top = 4
-patch_margin/right = 4
-patch_margin/bottom = 4
-script/script = ExtResource( 8 )
-
-[node name="Label" type="Label" parent="Option_menu1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 16.0
-margin/top = 19.0
-margin/right = 72.0
-margin/bottom = 59.0
-text = "tr(\"BUY\")"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label1" type="Label" parent="Option_menu1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 16.0
-margin/top = 90.0
-margin/right = 72.0
-margin/bottom = 130.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="exit" type="Button" parent="Option_menu1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 1
-size_flags/vertical = 0
-margin/left = 200.0
-margin/top = 18.0
-margin/right = 212.0
-margin/bottom = 38.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Main_tabs" type="Control" parent="Option_menu1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-
-[node name="Main_type" type="GridContainer" parent="Option_menu1/Main_tabs"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 13.0
-margin/top = 52.0
-margin/right = 214.0
-margin/bottom = 94.0
-columns = 5
-
-[node name="vehs" type="Button" parent="Option_menu1/Main_tabs/Main_type"]
-
-editor/display_folded = true
-rect/min_size = Vector2( 32, 32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 32.0
-margin/bottom = 32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="Sprite" type="Sprite" parent="Option_menu1/Main_tabs/Main_type/vehs"]
-
-transform/pos = Vector2( 16, 16 )
+transform/pos = Vector2( 146, 588 )
 texture = ExtResource( 9 )
-region = true
-region_rect = Rect2( 0, 0, 32, 32 )
 
-[node name="goods" parent="Option_menu1/Main_tabs/Main_type" instance=ExtResource( 10 )]
+[node name="Sprite" type="Sprite" parent="."]
 
-margin/left = 36.0
-margin/right = 36.0
-margin/bottom = 32.0
-texture_src = "res://res/Goods/Goods.png"
+transform/pos = Vector2( 38, 568 )
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 37, 41, 27 )
 
-[node name="Content_tabs" type="Control" parent="Option_menu1"]
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 584.0
+margin/right = 159.0
+margin/bottom = 602.0
+text = "test"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="REGENERATE" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-
-[node name="content_vech" type="GridContainer" parent="Option_menu1/Content_tabs"]
-
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 13.0
-margin/top = 120.0
-margin/right = 214.0
-margin/bottom = 162.0
-columns = 5
-
-[node name="Worker" parent="Option_menu1/Content_tabs/content_vech" instance=ExtResource( 10 )]
-
-texture_src = "res://res/Units/Human/icon.png"
-
-[connection signal="item_pressed" from="PopupMenu" to="." method="_on_PopupMenu_item_pressed"]
+margin/left = 686.0
+margin/top = 6.0
+margin/right = 793.0
+margin/bottom = 26.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Make map again"
+flat = false
+script/script = ExtResource( 11 )
 
 [connection signal="item_pressed" from="PopupMenu" to="PopupMenu" method="_on_PopupMenu_item_pressed"]
 
 [connection signal="item_pressed" from="PopupMenu/orders" to="." method="_on_orders_item_pressed"]
+
+[connection signal="pressed" from="REGENERATE" to="REGENERATE" method="_on_REGENERATE_pressed"]
 
 

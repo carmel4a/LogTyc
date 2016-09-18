@@ -2,8 +2,8 @@
 
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Camera/Camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/User_interface/User_interface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Levels/testlevel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Level/Level.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node"]
 
@@ -17,7 +17,7 @@ limit/top = -65536
 limit/right = 65535
 limit/bottom = 65535
 
-[node name="User_interface" parent="." instance=ExtResource( 3 )]
+[node name="UI" parent="." instance=ExtResource( 3 )]
 
 layer = 1
 
@@ -36,8 +36,8 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[connection signal="timeout" from="tick_timer" to="." method="_tick"]
-
 [connection signal="timeout" from="tick_timer" to="." method="Moves"]
+
+[connection signal="timeout" from="tick_timer" to="." method="_tick"]
 
 

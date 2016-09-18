@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://scenes/User_interface/opition_menu/button.gd" type="Script" id=1]
+[ext_resource path="res://scenes/UI/opition_menu/button.gd" type="Script" id=1]
 
 [node name="Button" type="Control"]
 
@@ -13,9 +13,6 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 script/script = ExtResource( 1 )
-name_of_item = ""
-layer = ""
-texture_src = ""
 
 [node name="button_bgr" type="Button" parent="."]
 

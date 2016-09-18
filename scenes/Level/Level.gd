@@ -1,23 +1,72 @@
-
+#######################################################
+#                                                     #
+# Main level node.                                    #
+# There will be a map generator and metainfo          #
+# to recreating level (money, quests, scenario, etc). #
+#                                                     #
+#######################################################
 extends Node
-var map_size = Vector2(200,200)
+
+# Map size must be even!
+var map_size = Vector2(20,20)
+
+# Seed
 var v_seed = 0
-# member variables here, example:
-# var a=2
-# var b="textvar"
+
 
 func _ready():
 	if v_seed == 0:
 		randomize()
 	else:
 		seed(v_seed)
+	# There will be methods to generate level
 	generate()
+#	river_test()
+	
+	
+func river_test():
+	for x in range(map_size.x):
+		for y in range(map_size.y):
+			get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,0)
+	var start_river = [floor(rand_range(1,map_size.x-1)),floor(rand_range(1,map_size.y-1))]
+	var end_river = [0,0]
+	if start_river[0]>=start_river[1]:
+		if start_river[0]-(map_size.x/2-1)<=start_river[1]-(map_size.y/2-1):
+			end_river = [map_size.x-1,floor(rand_range(0,map_size.y))]
+		else:
+			end_river = [floor(rand_range(0,map_size.y-1)),0]
+	elif (map_size.x/2-1)-start_river[0]>=-(map_size.y/2-1)-start_river[1]:
+		end_river = [0,floor(rand_range(0,map_size.y))]
+	else:
+		end_river = [floor(rand_range(0,map_size.x-1)),map_size.y]
+	get_node("TileMap").set_cell(end_river[0]-map_size.x/2,end_river[1]-map_size.x/2,1)
+	get_node("TileMap").set_cell(start_river[0]-map_size.x/2,start_river[1]-map_size.x/2,1)
 
+	
+	var riv_drc = Vector2(end_river[0]-start_river[0],end_river[1]-start_river[1])
+	var dir = 0
+
+	if ((abs(riv_drc.angle()/PI) >= (0.25)) and (abs(riv_drc.angle()/PI) <= (0.75))):
+		if riv_drc.x>0:
+			dir ="r"
+		else:
+			dir ="l"
+	elif riv_drc.y>0:
+		dir ="d"
+	else:
+		dir ="u"
+	var act_cell = Vector2(start_river[0],start_river[1])
+#	while(not((act_cell.x==start_river[0]) and ((act_cell.y==start_river[1])))):
+#		if randi()$101>75:
+
+
+	
 func generate():
+
 	for x in range(200):
 		for y in range(200):
 			if get_node("TileMap").get_cell(x-map_size.x/2,y-map_size.y/2) == -1:
-				if rand_range(0,1)>=0.05:
+				if  randf()>=0.005:
 					get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,0)
 				else:
 					generate_dirt_plain(x,y)
@@ -26,6 +75,7 @@ func generate():
 				y = y + 1
 		x  = x +1
 	generate__polish_eges()
+	
 	
 func generate_dirt_plain(x,y):
 	get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,1)
@@ -36,6 +86,7 @@ func generate_dirt_plain(x,y):
 			get_node("TileMap").set_cell(x-map_size.x/2-size_plain+px,y-map_size.x/2-size_plain+py,1)
 			py = py + 1
 		px = px + 1
+
 
 func generate__polish_eges():
 	pass
