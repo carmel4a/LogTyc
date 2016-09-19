@@ -1,10 +1,11 @@
-﻿id,en,pl
+id,en,pl
 LANG,English,Polski
 BUTTON_PLAN,Plan,Planuj
 BUTTON_ORDER,Orders,Polecenia
 BUTTON_STATS,Status,Statystyki
-MONEY,Money,Pieniądze
 BUY,Buy,Kup
 SELL,Sell,Sprzedaj
+EDIT_ORDER,Edit,Edytuj
 VECH,Vehicles,Pojazdy
 INFRA,Infrastructure,Infrastruktura
+MONEY,Money,Pieniądze

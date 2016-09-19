@@ -37,6 +37,8 @@ func _process(delta):
 		adding_item(null)
 	if action == 2:
 		sell()
+	if action == 3:
+		get_sth()
 	if action == 0:
 		if i <= 0*delta:
 			get_node("../../../UI/PopupMenu").blokade = 0
@@ -141,3 +143,27 @@ func sell():
 					if k.get_name() == j:
 						
 						remove_child(k)
+
+func get_sth():
+	if action == 0:
+		action = 3
+		frame1.set_region_rect(Rect2(Vector2(0,0),Vector2(128,128)))
+		set_process(true)
+		
+	if action == 3:
+		for i in objects.values():
+			if i == str(str(floor(get_node("../../../mouse_pos").get_global_mouse_pos().x/64)*64+32)+" "+str(floor(get_node("../../../mouse_pos").get_global_mouse_pos().y/64)*64+32)):
+				get_node("frame1").set_global_pos(Vector2(floor(get_node("../../../mouse_pos").get_global_mouse_pos().x/64)*64+64,floor(get_node("../../../mouse_pos").get_global_mouse_pos().y/64)*64+64))
+				get_node("frame1").show()
+				for j in objects.keys():
+					if objects[j]==i:
+#						print(j) // thats ho get a NAME of item in 1/4 place
+						break
+				break
+			else:
+				get_node("frame1").hide()
+
+	if ((System.is_drag == 0) and (action == 3)):
+		get_node("frame1").hide()
+		action = 0
+		set_process(false)
