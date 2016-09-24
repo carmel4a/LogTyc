@@ -8,5 +8,5 @@ func _ready():
 
 func _on_REGENERATE_pressed():
 	
-	get_node("../../Level").river_test()
+	get_node("../../Level")._ready()
 	

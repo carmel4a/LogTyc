@@ -7,6 +7,8 @@
 #######################################################
 extends Node
 
+onready var tilemap = get_node("TileMap")
+
 # Map size must be even!
 var map_size = Vector2(20,20)
 
@@ -15,6 +17,7 @@ var v_seed = 0
 
 
 func _ready():
+	tilemap.clear()
 	if v_seed == 0:
 		randomize()
 	else:
@@ -27,7 +30,7 @@ func _ready():
 func river_test():
 	for x in range(map_size.x):
 		for y in range(map_size.y):
-			get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,0)
+			tilemap.set_cell(x-map_size.x/2,y-map_size.x/2,0)
 	var start_river = [floor(rand_range(1,map_size.x-1)),floor(rand_range(1,map_size.y-1))]
 	var end_river = [0,0]
 	if start_river[0]>=start_river[1]:
@@ -39,8 +42,8 @@ func river_test():
 		end_river = [0,floor(rand_range(0,map_size.y))]
 	else:
 		end_river = [floor(rand_range(0,map_size.x-1)),map_size.y]
-	get_node("TileMap").set_cell(end_river[0]-map_size.x/2,end_river[1]-map_size.x/2,1)
-	get_node("TileMap").set_cell(start_river[0]-map_size.x/2,start_river[1]-map_size.x/2,1)
+	tilemap.set_cell(end_river[0]-map_size.x/2,end_river[1]-map_size.x/2,1)
+	tilemap.set_cell(start_river[0]-map_size.x/2,start_river[1]-map_size.x/2,1)
 
 	
 	var riv_drc = Vector2(end_river[0]-start_river[0],end_river[1]-start_river[1])
@@ -62,12 +65,11 @@ func river_test():
 
 	
 func generate():
-
-	for x in range(200):
-		for y in range(200):
-			if get_node("TileMap").get_cell(x-map_size.x/2,y-map_size.y/2) == -1:
-				if  randf()>=0.005:
-					get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,0)
+	for x in range(map_size.x):
+		for y in range(map_size.y):
+			if tilemap.get_cell(x-map_size.x/2,y-map_size.y/2) == -1:
+				if  randf()>=0.01:
+					tilemap.set_cell(x-map_size.x/2,y-map_size.x/2,0)
 				else:
 					generate_dirt_plain(x,y)
 				y = y + 1
@@ -78,12 +80,12 @@ func generate():
 	
 	
 func generate_dirt_plain(x,y):
-	get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.x/2,1)
+	tilemap.set_cell(x-map_size.x/2,y-map_size.x/2,1)
 	var size_plain = round(rand_range(0,4))
 
 	for px in range(size_plain):
 		for py in range(size_plain):
-			get_node("TileMap").set_cell(x-map_size.x/2-size_plain+px,y-map_size.x/2-size_plain+py,1)
+			tilemap.set_cell(x-map_size.x/2-size_plain+px,y-map_size.x/2-size_plain+py,1)
 			py = py + 1
 		px = px + 1
 
@@ -95,18 +97,18 @@ func generate__polish_eges():
 #		end_polishing = 1
 #		for x in range(200):
 #			for y in range(200):
-#				if get_node("TileMap").get_cell(x-map_size.x/2,y-map_size.y/2) == 0:
+#				if tilemap.get_cell(x-map_size.x/2,y-map_size.y/2) == 0:
 #					var l = 0
 #					var r = 0
 #					var t = 0
 #					var b = 0
-#					if get_node("TileMap").get_cell(x-map_size.x/2,y-map_size.y/2+1) == 1:
+#					if tilemap.get_cell(x-map_size.x/2,y-map_size.y/2+1) == 1:
 #						t = 1
-#					if get_node("TileMap").get_cell(x-map_size.x/2+1,y-map_size.y/2) == 1:
+#					if tilemap.get_cell(x-map_size.x/2+1,y-map_size.y/2) == 1:
 #						r = 1
-#					if get_node("TileMap").get_cell(x-map_size.x/2,y-map_size.y/2-1) == 1:
+#					if tilemap.get_cell(x-map_size.x/2,y-map_size.y/2-1) == 1:
 #						b = 1
-#					if get_node("TileMap").get_cell(x-map_size.x/2-1,y-map_size.y/2) == 1:
+#					if tilemap.get_cell(x-map_size.x/2-1,y-map_size.y/2) == 1:
 #						l = 1
 #					var a = [l,t,r,b]
 #					var err = 0
@@ -115,15 +117,15 @@ func generate__polish_eges():
 #							err = err + 1
 #					if err < 2:
 #						if t == 1:
-#							get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.y/2,7)
+#							tilemap.set_cell(x-map_size.x/2,y-map_size.y/2,7)
 #						if b == 1:
-#							get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.y/2,4)
+#							tilemap.set_cell(x-map_size.x/2,y-map_size.y/2,4)
 #						if l == 1:
-#							get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.y/2,3)
+#							tilemap.set_cell(x-map_size.x/2,y-map_size.y/2,3)
 #						if r == 1:
-#							get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.y/2,2)
+#							tilemap.set_cell(x-map_size.x/2,y-map_size.y/2,2)
 #					else:
 #						end_polishing = 0
-#						get_node("TileMap").set_cell(x-map_size.x/2,y-map_size.y/2,1)
+#						tilemap.set_cell(x-map_size.x/2,y-map_size.y/2,1)
 #				y = y + 1
 #			x = x + 1
