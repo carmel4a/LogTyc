@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://res/Tileset/Nature/Nature.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/Level/layer_veh.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Level/Layer.gd" type="Script" id=3]
 
 [node name="Level" type="Node"]
 
@@ -27,8 +27,6 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 
 [node name="Layers" type="Node" parent="."]
-
-[node name="Units" type="Node" parent="Layers"]
 
 script/script = ExtResource( 3 )
 

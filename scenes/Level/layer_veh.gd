@@ -3,28 +3,26 @@ extends Node
 # frame texture
 var frame_t = preload("res://res/UI/adding_frames.png")
 
-#var tex1 = preload("res://res/Tileset/Tileset2/items.png") //dont know whats it...
 # a sprite with item witch is adding
 var shadow
 
 # frames: bigger and smaller one
-var frame = Sprite.new()
-var frame1 = Sprite.new()
+
 
 var objects = {}
 
 func _ready():
-	add_child(frame)
-	add_child(frame1)
-	frame.set_texture(frame_t)
-	frame1.set_texture(frame_t)
-	frame.set_region(true)
-	frame1.set_region(true)
-	frame.set_name("frame")
-	frame1.set_name("frame1")
-	frame.hide()
-	frame1.hide()
-	
+#	add_child(frame)
+#	add_child(frame1)
+#	frame.set_texture(frame_t)
+#	frame1.set_texture(frame_t)
+#	frame.set_region(true)
+#	frame1.set_region(true)
+#	frame.set_name("frame")
+#	frame1.set_name("frame1")
+#	frame.hide()
+#	frame1.hide()
+	pass
 	
 # 0 - idle
 # 1 - adding
@@ -40,12 +38,12 @@ func _process(delta):
 	if action == 3:
 		get_sth()
 	if action == 0:
-		if i <= 0*delta:
+		if i <= 0:
 			get_node("../../../UI/PopupMenu").blokade = 0
 			i = 1
 			set_process(false)
 		else: 
-			i -= 1*delta
+			i -= 1*delta*1.7
 
 # WTF? That func wanna kill me, but works so I'll leave it
 func adding_item(name_of_item):
@@ -55,7 +53,7 @@ func adding_item(name_of_item):
 	
 	if action == 0:
 		action = 1
-		shadow = System.buy[get_name()][name_of_item].instance()
+		shadow = System.types[get_name()][name_of_item].instance()
 		shadow.set_name("shadow")
 		add_child(shadow)
 		if name_of_item != null:
@@ -81,7 +79,7 @@ func adding_item(name_of_item):
 		
 		
 	if ((what_add!=null)and(action == 1) and (Input.is_mouse_button_pressed(BUTTON_LEFT)) and not(objects.values().has(str(x)+" "+str(y)))):
-		var v = System.buy["Units"][what_add].instance()
+		var v = System.types["Units"][what_add].instance()
 		v.set_meta("type",what_add)
 		v.set_name(what_add+first_free_number(what_add))
 		v.set_pos(Vector2(x,y))
@@ -157,6 +155,7 @@ func get_sth():
 				get_node("frame1").show()
 				for j in objects.keys():
 					if objects[j]==i:
+#						get_node("../../../UI/Option_menu").order_list(str(j))
 #						print(j) // thats ho get a NAME of item in 1/4 place
 						break
 				break

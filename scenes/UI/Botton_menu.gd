@@ -6,7 +6,10 @@ var texture_margin = [14,6,8,8]
 var btt_mar = 8
 var btt_b_mar = 8
 var icon_size = 32
+
+var type_of_action = 0
 func _ready():
+	set_process(true)
 	for i in range(0,4):
 		set_patch_margin(i, texture_margin[i])
 	set_anchor_and_margin(1,1,(icon_size + texture_margin[3] + texture_margin[1] + btt_mar))
@@ -21,7 +24,14 @@ func _ready():
 	get_node("Buttons").set_anchor_and_margin(3,1,texture_margin[3]+btt_mar)
 	get_node("Buttons").set("custom_cons1tants/separation",btt_b_mar)
 
-var type_of_action = 0
+func _process(delta):
+	if Input.is_action_pressed("ui_botton_menu_0"):
+		type_of_action = 0
+	if Input.is_action_pressed("ui_botton_menu_1"):
+		type_of_action = 1
+	if Input.is_action_pressed("ui_botton_menu_2"):
+		type_of_action = 2
+
 func _on_Plan_pressed():
 	type_of_action = 0
 func _on_Orders_pressed():

@@ -47,10 +47,11 @@ func _on_PopupMenu_item_pressed( ID ):
 		if ID == 0:
 			get_node("../Option_menu").show()
 		if ID == 1:
-			get_node("../../Level/Layers/Units").sell()
+			get_node("../../Level/Layers").delete("Units")
 	if get_node("../Botton_menu").type_of_action == 1:
 		if ID == 0:
-			get_node("../../Level/Layers/Units").get_sth()
+#			get_node("../../Level/Layers/Units").get_sth()
+			pass
 			
 func _input(event):
 	if event.is_action_pressed("con_menu"):
